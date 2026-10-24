@@ -2,8 +2,8 @@
 
 A full-stack marketplace prototype that lets small coconut farmers in Kerala list their coconuts at their own price, and lets buyers contact them directly. Built to explore how a simple website could reduce the pricing disadvantage small farmers face when selling through middlemen.
 
-**Live demo:** https://YOUR-FRONTEND.onrender.com
-**API:** https://YOUR-API-NAME.onrender.com/api/listings
+**Live demo:** https://parvathykk2006.github.io/nalikeram-direct/
+**API:** https://nalikeram-direct.onrender.com/api/listings
 
 > The free server sleeps when idle, so the first load can take about a minute.
 
@@ -16,7 +16,7 @@ A full-stack marketplace prototype that lets small coconut farmers in Kerala lis
 - Responsive layout, original SVG illustrations, no external UI libraries
 
 ## Tech
-- Frontend: HTML, CSS, vanilla JavaScript
+- docs: HTML, CSS, vanilla JavaScript
 - Backend: Node.js, Express, Mongoose
 - Database: MongoDB Atlas
 - Hosting: Render
