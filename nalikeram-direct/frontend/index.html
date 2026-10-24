@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nalikeram Direct | Fair prices for coconut farmers</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="banner" class="banner hidden"></div>
+
+<header class="nav">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#6b4a2b"/><circle cx="12" cy="13" r="2" fill="#f7e6cc"/><circle cx="19" cy="13" r="2" fill="#f7e6cc"/><circle cx="15.5" cy="19.5" r="2" fill="#f7e6cc"/></svg>
+    <span>Nalikeram <b>Direct</b></span>
+  </div>
+  <div id="navGuest" class="navr">
+    <a href="#how" class="navlink">How it works</a>
+    <a href="#prices" class="navlink">Prices</a>
+    <button type="button" class="btn small" data-open="seller:login">Login</button>
+  </div>
+  <div id="navUser" class="navr hidden">
+    <span class="hello">Hi, <b id="navName"></b></span>
+    <button type="button" id="logoutBtn" class="btn small ghost">Logout</button>
+  </div>
+</header>
+
+<main>
+<div id="landing">
+  <section class="hero">
+    <div class="heroText">
+      <span class="chip">For small coconut farmers in Kerala</span>
+      <h1>Sell your coconuts <em>directly</em>. Ask the price you deserve.</h1>
+      <p>Nalikeram Direct lets farmers list their coconuts at their own price, and lets buyers call them straight away. Nobody in between.</p>
+      <div class="cta">
+        <button type="button" class="btn big" data-open="seller:signup">I'm a farmer</button>
+        <button type="button" class="btn big ghost" data-open="buyer:signup">I'm a buyer</button>
+      </div>
+    </div>
+    <div class="heroArt">
+      <svg viewBox="0 0 400 320" role="img" aria-label="Coconut palms beside a backwater at sunrise">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd98a"/><stop offset="1" stop-color="#fff3d6"/></linearGradient>
+          <g id="palm">
+            <path d="M110 270 Q96 190 126 110" fill="none" stroke="#6b4a2b" stroke-width="9" stroke-linecap="round"/>
+            <g fill="#1f8f6a">
+              <path d="M126 110 Q86 66 36 92 Q86 84 126 110Z"/>
+              <path d="M126 110 Q82 118 44 156 Q92 126 126 110Z"/>
+              <path d="M126 110 Q168 66 218 92 Q168 84 126 110Z"/>
+              <path d="M126 110 Q170 118 208 156 Q160 126 126 110Z"/>
+              <path d="M126 110 Q116 62 128 34 Q142 66 126 110Z"/>
+            </g>
+            <circle cx="120" cy="116" r="7" fill="#6b4a2b"/><circle cx="132" cy="118" r="7" fill="#6b4a2b"/>
+          </g>
+        </defs>
+        <rect width="400" height="320" fill="url(#sky)"/>
+        <circle cx="300" cy="100" r="54" fill="#f2a93b"/>
+        <use href="#palm" transform="translate(150 50) scale(.75)" opacity=".7"/>
+        <use href="#palm"/>
+        <path d="M0 250 Q100 222 200 250 T400 250 V320 H0Z" fill="#14746f"/>
+        <path d="M0 282 Q100 258 200 282 T400 282 V320 H0Z" fill="#0b3b3c"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="how" class="block">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Create an account</h3><p>Choose Seller (Farmer) or Buyer, then set your own password.</p></div>
+      <div class="step"><div class="num">2</div><h3>Farmers list coconuts</h3><p>Add how many coconuts you have, where they are, and your price.</p></div>
+      <div class="step"><div class="num">3</div><h3>Buyers call directly</h3><p>Buyers search by place, then call or WhatsApp the farmer and agree the deal together.</p></div>
+    </div>
+  </section>
+
+  <div class="band">
+    <section id="prices" class="block">
+      <h2>Know the market rate</h2>
+      <p>A quick reference so farmers can check a fair price before talking to any buyer.</p>
+      <div id="priceRows" class="price-rows"></div>
+      <p class="note">These are SAMPLE numbers for the demo. Replace them with real local market rates before sharing the site.</p>
+    </section>
+  </div>
+
+  <section class="block">
+    <h2>Why Nalikeram Direct</h2>
+    <div class="steps">
+      <div class="step"><h3>You set the price</h3><p>Farmers choose their own rate instead of accepting whatever a trader offers.</p></div>
+      <div class="step"><h3>Check the rate first</h3><p>The price board gives you a reference before you list.</p></div>
+      <div class="step"><h3>Made for phones</h3><p>Simple pages that fit any phone screen.</p></div>
+    </div>
+  </section>
+</div>
+
+<section id="sellerView" class="dash hidden">
+  <h1 id="sellerHello"></h1>
+  <p>Add your coconuts and set your own price. Buyers will call you directly.</p>
+  <div class="stats">
+    <div class="stat"><b id="stat1">0</b>Active listings</div>
+    <div class="stat"><b id="stat2">0</b>Coconuts listed</div>
+    <div class="stat"><b id="stat3">-</b>Average price</div>
+  </div>
+  <div class="panel">
+    <h3>Add a listing</h3>
+    <p id="refHint" class="hint"></p>
+    <form id="listingForm" novalidate>
+      <label>Village / Place</label>
+      <input id="lVillage" type="text" autocomplete="off">
+      <label>Number of coconuts</label>
+      <input id="lQty" type="number" min="1">
+      <label>Your price per coconut (₹)</label>
+      <input id="lPrice" type="number" min="1">
+      <label>Quality</label>
+      <select id="lQuality"><option value="good">Good</option><option value="average">Average</option></select>
+      <button class="btn" type="submit">Add listing</button>
+    </form>
+  </div>
+  <h3>Your listings</h3>
+  <div id="myListings" class="grid"></div>
+</section>
+
+<section id="buyerView" class="dash hidden">
+  <h1 id="buyerHello"></h1>
+  <p>Find coconuts directly from farmers, then call them.</p>
+  <div class="toolbar">
+    <input id="searchBox" type="search" placeholder="Search by village or farmer name" autocomplete="off">
+    <select id="sortBox"><option value="new">Newest first</option><option value="low">Price: low to high</option></select>
+  </div>
+  <p id="resultCount" class="hint"></p>
+  <div id="allListings" class="grid"></div>
+</section>
+</main>
+
+<footer>© 2026 Nalikeram Direct</footer>
+
+<div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="sheet">
+    <button type="button" id="closeAuth" class="x" aria-label="Close">×</button>
+    <h2 id="authTitle"></h2>
+    <div class="seg"><button type="button" data-r="seller">Seller (Farmer)</button><button type="button" data-r="buyer">Buyer</button></div>
+    <div class="seg"><button type="button" data-m="login">Login</button><button type="button" data-m="signup">Sign up</button></div>
+
+    <form id="loginForm" novalidate>
+      <label>Phone number</label>
+      <input id="loginPhone" type="text" maxlength="15" autocomplete="off">
+      <label>Password</label>
+      <div class="pw"><input id="loginPassword" type="password" autocomplete="off"><button type="button" class="eye" data-eye="loginPassword">Show</button></div>
+      <button class="btn" type="submit">Login</button>
+    </form>
+
+    <form id="signupForm" class="hidden" novalidate>
+      <label>Name</label>
+      <input id="suName" type="text" autocomplete="off">
+      <label>Phone number</label>
+      <input id="suPhone" type="text" maxlength="15" autocomplete="off">
+      <div id="villageRow">
+        <label>Village / Place</label>
+        <input id="suVillage" type="text" autocomplete="off">
+      </div>
+      <label>Create a password (min 6 characters)</label>
+      <div class="pw"><input id="suPassword" type="password" autocomplete="new-password"><button type="button" class="eye" data-eye="suPassword,suPassword2">Show</button></div>
+      <label>Type the password again</label>
+      <input id="suPassword2" type="password" autocomplete="new-password">
+      <button class="btn" type="submit">Create account</button>
+    </form>
+    <p id="authMsg" class="msg"></p>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+<script>
+  if (!window.appStarted) {
+    var b = document.getElementById("banner");
+    b.textContent = "app.js did not start. Check it is saved, named exactly app.js, and in the same folder as index.html.";
+    b.classList.remove("hidden");
+  }
+</script>
+</body>
+</html>
