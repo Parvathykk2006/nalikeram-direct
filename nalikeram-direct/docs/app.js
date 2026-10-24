@@ -11,8 +11,7 @@ const REFERENCE = [
 // Address of your backend.
 // On your own computer it uses localhost. On the live site it uses PRODUCTION_API.
 // After deploying the backend, replace the address in PRODUCTION_API.
-const PRODUCTION_API = "https://YOUR-API-NAME.onrender.com";
-const API =
+const PRODUCTION_API = "https://nalikeram-direct.onrender.com";
   location.hostname === "" || location.hostname === "localhost" || location.hostname === "127.0.0.1"
     ? "http://localhost:5000"
     : PRODUCTION_API;
